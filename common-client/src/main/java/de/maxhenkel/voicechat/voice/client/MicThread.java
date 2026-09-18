@@ -137,9 +137,12 @@ public class MicThread extends Thread {
         if (audio == null) {
             return null;
         }
+        echoCanceller.processStream(audio);
+        
         microphoneProcessor.process(audio, testing);
         return audio;
     }
+
 
     @Nullable
     private Microphone getMic() {
