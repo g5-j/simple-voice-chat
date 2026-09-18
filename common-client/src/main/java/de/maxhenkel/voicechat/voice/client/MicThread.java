@@ -16,7 +16,6 @@ import de.maxhenkel.voicechat.voice.common.Utils;
 import net.minecraft.client.Minecraft;
 
 import javax.annotation.Nullable;
-import dev.hypherionmc.webrtc.EchoCanceller;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Consumer;
@@ -33,7 +32,6 @@ public class MicThread extends Thread {
     private MicrophoneException microphoneError;
     private volatile boolean running;
     private volatile boolean microphoneLocked;
-    private final EchoCanceller echoCanceller = new EchoCanceller();
     private final OpusEncoder encoder;
     private volatile MicrophoneProcessor microphoneProcessor;
 
@@ -137,12 +135,9 @@ public class MicThread extends Thread {
         if (audio == null) {
             return null;
         }
-        echoCanceller.processStream(audio);
-        
         microphoneProcessor.process(audio, testing);
         return audio;
     }
-
 
     @Nullable
     private Microphone getMic() {
