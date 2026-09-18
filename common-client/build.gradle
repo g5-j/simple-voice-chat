@@ -10,7 +10,6 @@ repositories {
 }
 
 dependencies {
-    dependencies {
     implementation "de.maxhenkel.configbuilder:configbuilder:${configbuilder_version}"
     implementation "de.maxhenkel.opus4j:opus4j:${opus4j_version}"
     implementation "org.concentus:Concentus:${concentus_version}"
