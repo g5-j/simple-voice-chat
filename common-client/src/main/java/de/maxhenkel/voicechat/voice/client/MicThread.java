@@ -33,6 +33,7 @@ public class MicThread extends Thread {
     private MicrophoneException microphoneError;
     private volatile boolean running;
     private volatile boolean microphoneLocked;
+    private final EchoCanceller echoCanceller = new EchoCanceller();
     private final OpusEncoder encoder;
     private volatile MicrophoneProcessor microphoneProcessor;
 
