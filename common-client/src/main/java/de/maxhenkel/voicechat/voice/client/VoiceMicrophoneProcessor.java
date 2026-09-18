@@ -5,7 +5,7 @@ import de.maxhenkel.voicechat.voice.common.AudioUtils;
 
 public class VoiceMicrophoneProcessor extends MicrophoneProcessor {
 
-    public static final float ACTIVATION_PROBABILITY = 0.5F;
+    public static final float ACTIVATION_PROBABILITY = 0.85F;
 
     private boolean testing;
 
@@ -26,7 +26,7 @@ public class VoiceMicrophoneProcessor extends MicrophoneProcessor {
             return false;
         }
 
-        if (denoiserAvailable() && VoicechatClient.CLIENT_CONFIG.vad.get()) {
+        if (denoiserAvailable()) {
             return speechProbability >= ACTIVATION_PROBABILITY;
         }
 
