@@ -16,6 +16,7 @@ import de.maxhenkel.voicechat.voice.common.Utils;
 import net.minecraft.client.Minecraft;
 
 import javax.annotation.Nullable;
+import dev.hypherionmc.webrtc.EchoCanceller;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Consumer;
